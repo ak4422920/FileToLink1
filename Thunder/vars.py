@@ -18,20 +18,20 @@ def str_to_int_set(val: str) -> Set[int]:
     return {int(x) for x in val.split() if x.isdigit()} if val else set()
 
 class Var:
-    API_ID: int = int(os.getenv("API_ID", ""))
-    API_HASH: str = os.getenv("API_HASH", "")
+    API_ID: int = int(os.getenv("API_ID", "29171167"))
+    API_HASH: str = os.getenv("API_HASH", "7ea2149629e445936619f06a3c0dc716")
     BOT_TOKEN: str = os.getenv("BOT_TOKEN", "")
 
     if not all([API_ID, API_HASH, BOT_TOKEN]):
         logger.critical("Missing required Telegram API configuration")
         raise ValueError("Missing required Telegram API configuration")
 
-    NAME: str = os.getenv("NAME", "ThunderF2L")
+    NAME: str = os.getenv("NAME", "ak_filestreambot")
     SLEEP_THRESHOLD: int = int(os.getenv("SLEEP_THRESHOLD", "120"))
     WORKERS: int = int(os.getenv("WORKERS", "8"))
     TIMEOUT: int = int(os.getenv("TIMEOUT", "90"))
 
-    BIN_CHANNEL: int = int(os.getenv("BIN_CHANNEL", "0"))
+    BIN_CHANNEL: int = int(os.getenv("BIN_CHANNEL", "-1002493002460"))
 
     if not BIN_CHANNEL:
         logger.critical("BIN_CHANNEL is required")
@@ -43,12 +43,12 @@ class Var:
     NO_PORT: bool = str_to_bool(os.getenv("NO_PORT", "True"))
     CACHE_SIZE: int = int(os.getenv("CACHE_SIZE", "100"))
 
-    OWNER_ID: List[int] = str_to_int_list(os.getenv("OWNER_ID", ""))
+    OWNER_ID: List[int] = str_to_int_list(os.getenv("OWNER_ID", "7251898668"))
 
     if not OWNER_ID:
         logger.warning("WARNING: OWNER_ID is empty. No user will have admin access.")
 
-    OWNER_USERNAME: str = os.getenv("OWNER_USERNAME", "")
+    OWNER_USERNAME: str = os.getenv("OWNER_USERNAME", "The_SonGoku")
 
     FQDN: str = os.getenv("FQDN", "") or BIND_ADDRESS
     HAS_SSL: bool = str_to_bool(os.getenv("HAS_SSL", "False"))
@@ -70,7 +70,7 @@ class Var:
 
     FORCE_CHANNEL_ID: Optional[int] = None
 
-    force_channel_env = os.getenv("FORCE_CHANNEL_ID", "").strip()
+    force_channel_env = os.getenv("FORCE_CHANNEL_ID", "-1002442422204").strip()
 
     if force_channel_env:
         try:
